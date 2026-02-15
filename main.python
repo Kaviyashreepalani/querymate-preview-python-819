@@ -1,0 +1,38 @@
+def fibonacci_sequence(n_terms):
+    """
+    Generates the Fibonacci sequence up to n_terms.
+
+    Args:
+        n_terms (int): The number of terms in the Fibonacci sequence to generate.
+
+    Returns:
+        list: A list containing the Fibonacci sequence.
+    """
+    if n_terms <= 0:
+        return []
+    elif n_terms == 1:
+        return [0]
+    else:
+        # Initialize the first two Fibonacci numbers
+        a, b = 0, 1
+        sequence = [a, b]
+        # Generate subsequent terms
+        for _ in range(2, n_terms):
+            next_fib = a + b
+            sequence.append(next_fib)
+            a = b
+            b = next_fib
+        return sequence
+
+# Example usage:
+num_terms = 10
+fib_series = fibonacci_sequence(num_terms)
+print(f"Fibonacci sequence up to {num_terms} terms: {fib_series}")
+
+num_terms_2 = 1
+fib_series_2 = fibonacci_sequence(num_terms_2)
+print(f"Fibonacci sequence up to {num_terms_2} term: {fib_series_2}")
+
+num_terms_3 = 0
+fib_series_3 = fibonacci_sequence(num_terms_3)
+print(f"Fibonacci sequence up to {num_terms_3} terms: {fib_series_3}")
